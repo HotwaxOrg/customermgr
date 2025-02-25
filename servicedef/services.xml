@@ -41,7 +41,7 @@ under the License.
         <attribute name="DOB" type="Timestamp" mode="IN"/>
         <attribute name="address1" type="String" mode="IN"/>
         <attribute name="address2" type="String" mode="IN"/>
-        <attribute name="cityGeoId" type="String" mode="IN"/>
+        <attribute name="city" type="String" mode="IN"/>
         <attribute name="postalCode" type="String" mode="IN"/>
         <attribute name="stateProvinceGeoId" type="String" mode="IN"/>
         <attribute name="countryGeoId" type="String" mode="IN"/>
