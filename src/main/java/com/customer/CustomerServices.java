@@ -4,6 +4,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Locale;
 import java.sql.Timestamp;
+import java.util.LinkedList;
+import java.util.*;
 
 import org.apache.ofbiz.service.DispatchContext;
 import org.apache.ofbiz.base.util.Debug;
@@ -14,6 +16,11 @@ import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.entity.GenericEntityException;
 import org.apache.ofbiz.service.ServiceUtil;
 import org.apache.ofbiz.base.util.UtilDateTime;
+import org.apache.ofbiz.entity.condition.EntityCondition;
+import org.apache.ofbiz.base.util.UtilValidate;
+import org.apache.ofbiz.entity.condition.EntityOperator;
+import org.apache.ofbiz.entity.GenericValue;
+import org.apache.ofbiz.entity.util.EntityQuery;
 
 
 public class CustomerServices{
@@ -120,12 +127,45 @@ public class CustomerServices{
                             UtilDateTime.toTimestamp("2026-01-01 00:00:00"),
                             "contactMechPurposeTypeId", "PRIMARY_PHONE"));
             delegator.create(partyContactMechPurpose3);
-            
+
             result.put("partyId", partyId);
             return result;
-        }
-        catch (GenericEntityException e){
+        } catch (GenericEntityException e){
             return ServiceUtil.returnError("Error creating order: " + e.getMessage());
         }
+    }
+
+//    Service to find customers
+    public static Map<String, Object> findCustomer(DispatchContext dctx, Map<String, ? extends Object> context){
+        Delegator delegator = dctx.getDelegator();
+        List<EntityCondition> conditions = new LinkedList<>();
+
+//        Getting the parameters
+        String firstName = (String) context.get("firstName");
+        String lastName = (String) context.get("lastName");
+        String email = (String) context.get("email");
+        String city = (String) context.get("city");
+
+//        Add conditions based on parameters
+        if (UtilValidate.isNotEmpty(firstName)){
+            conditions.add(EntityCondition.makeCondition("firstName", EntityOperator.LIKE, firstName));
+        } if (UtilValidate.isNotEmpty(lastName)){
+            conditions.add(EntityCondition.makeCondition("lastName", EntityOperator.LIKE, lastName));
+        } if (UtilValidate.isNotEmpty(email)){
+            conditions.add(EntityCondition.makeCondition("email", EntityOperator.LIKE, email));
+        } if (UtilValidate.isNotEmpty(city)){
+            conditions.add(EntityCondition.makeCondition("city", EntityOperator.LIKE, city));
+        }
+
+        List<GenericValue> customersList = new ArrayList<>();
+        try{
+            customersList = EntityQuery.use(delegator).from("CustomerViewEntity").where(EntityCondition.makeCondition(conditions, EntityOperator.AND)).queryList();
+        } catch (GenericEntityException e){
+            return ServiceUtil.returnError("Error creating order: " + e.getMessage());
+        }
+        // Create result map
+        Map<String, Object> result = ServiceUtil.returnSuccess();
+        result.put("customersList", customersList);
+        return result;
     }
 }

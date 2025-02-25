@@ -28,4 +28,50 @@ under the License.
     <copyright></copyright>
     <version></version>
 
+    <view-entity entity-name="CustomerViewEntity" package-name="customer.customerview">
+        <member-entity entity-alias="PR" entity-name="PartyRole"/>
+        <member-entity entity-alias="PER" entity-name="Person"/>
+        <member-entity entity-alias="CM" entity-name="ContactMech"/>
+        <member-entity entity-alias="PA" entity-name="PostalAddress"/>
+        <member-entity entity-alias="TN" entity-name="TelecomNumber"/>
+        <member-entity entity-alias="PCM" entity-name="PartyContactMech"/>
+        <member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose"/>
+
+        <alias name="firstName" entity-alias="PER" field="firstName"/>
+        <alias name="lastName" entity-alias="PER" field="lastName"/>
+        <alias name="gender" entity-alias="PER" field="gender"/>
+        <alias name="birthDate" entity-alias="PER" field="birthDate"/>
+        <alias name="role" entity-alias="PR" field="roleTypeId"/>
+        <alias name="email" entity-alias="CM" field="infoString"/>
+        <alias name="address1" entity-alias="PA" field="address1"/>
+        <alias name="address2" entity-alias="PA" field="address2"/>
+        <alias name="city" entity-alias="PA" field="city"/>
+        <alias name="postalCode" entity-alias="PA" field="postalCode"/>
+        <alias name="stateProvinceGeoId" entity-alias="PA" field="stateProvinceGeoId"/>
+        <alias name="countryGeoId" entity-alias="PA" field="countryGeoId"/>
+        <alias name="countryCode" entity-alias="TN" field="countryCode"/>
+        <alias name="areaCode" entity-alias="TN" field="areaCode"/>
+        <alias name="contactNumber" entity-alias="TN" field="contactNumber"/>
+        <alias name="contactMechPurpose" entity-alias="PCMP" field="contactMechPurposeTypeId"/>
+
+        <view-link entity-alias="PR" rel-entity-alias="PER">
+            <key-map field-name="partyId"/>
+            <entity-condition>
+                <condition-expr entity-alias="PR" field-name="roleTypeId" operator="equals" value="CUSTOMER"/>
+            </entity-condition>
+        </view-link>
+        <view-link entity-alias="PER" rel-entity-alias="PCM">
+            <key-map field-name="partyId"/>
+        </view-link>
+        <view-link entity-alias="PCM" rel-entity-alias="CM">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+        <view-link entity-alias="CM" rel-entity-alias="PA" rel-optional="true">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+        <view-link entity-alias="CM" rel-entity-alias="TN" rel-optional="true">
+            <key-map field-name="contactMechId"/>
+        </view-link>
+    </view-entity>
+
 </entitymodel>

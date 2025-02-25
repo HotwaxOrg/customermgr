@@ -52,5 +52,18 @@ under the License.
 <!--        Output attribute of the service -->
         <attribute name="partyId" type="String" mode="OUT"/>
     </service>
+
+<!--    Service to find a customer -->
+    <service name="findCustomer" engine="java" location="com.customer.CustomerServices" invoke="findCustomer">
+        <description>A service to find customer</description>
+<!--        Input attributes of the service -->
+        <attribute name="firstName" type="String" mode="IN" optional="true"/>
+        <attribute name="lastName" type="String" mode="IN" optional="true"/>
+        <attribute name="email" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+
+<!--     Output attributes of the service -->
+        <attribute name="customersList" type="List" mode="OUT"/>
+    </service>
     
 </services>
