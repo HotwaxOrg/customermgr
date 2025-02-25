@@ -29,5 +29,28 @@ under the License.
             Dummy service to prevent empty files and syntax error - Remove when the 1st real service will be added here 
         </description>
     </service> 
+
+<!--    Service to create customer-->
+    <service name="createCustomer" engine="java" location="com.customer.CustomerServices" invoke="createCustomer">
+        <description>A service to create customer</description>
+<!--        Input attributes of the service -->
+        <attribute name="firstName" type="String" mode="IN"/>
+        <attribute name="lastName" type="String" mode="IN"/>
+        <attribute name="gender" type="String" mode="IN"/>
+        <attribute name="emailAddress" type="String" mode="IN"/>
+        <attribute name="DOB" type="Timestamp" mode="IN"/>
+        <attribute name="address1" type="String" mode="IN"/>
+        <attribute name="address2" type="String" mode="IN"/>
+        <attribute name="cityGeoId" type="String" mode="IN"/>
+        <attribute name="postalCode" type="String" mode="IN"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN"/>
+        <attribute name="countryGeoId" type="String" mode="IN"/>
+        <attribute name="countryCode" type="String" mode="IN"/>
+        <attribute name="areaCode" type="String" mode="IN"/>
+        <attribute name="contactNumber" type="String" mode="IN"/>
+
+<!--        Output attribute of the service -->
+        <attribute name="partyId" type="String" mode="OUT"/>
+    </service>
     
 </services>
