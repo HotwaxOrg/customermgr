@@ -37,17 +37,17 @@ under the License.
         <attribute name="firstName" type="String" mode="IN"/>
         <attribute name="lastName" type="String" mode="IN"/>
         <attribute name="gender" type="String" mode="IN"/>
-        <attribute name="emailAddress" type="String" mode="IN"/>
+        <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
         <attribute name="DOB" type="Timestamp" mode="IN"/>
-        <attribute name="address1" type="String" mode="IN"/>
-        <attribute name="address2" type="String" mode="IN"/>
-        <attribute name="city" type="String" mode="IN"/>
-        <attribute name="postalCode" type="String" mode="IN"/>
-        <attribute name="stateProvinceGeoId" type="String" mode="IN"/>
-        <attribute name="countryGeoId" type="String" mode="IN"/>
-        <attribute name="countryCode" type="String" mode="IN"/>
-        <attribute name="areaCode" type="String" mode="IN"/>
-        <attribute name="contactNumber" type="String" mode="IN"/>
+        <attribute name="address1" type="String" mode="IN" optional="true"/>
+        <attribute name="address2" type="String" mode="IN" optional="true"/>
+        <attribute name="city" type="String" mode="IN" optional="true"/>
+        <attribute name="postalCode" type="String" mode="IN" optional="true"/>
+        <attribute name="stateProvinceGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countryGeoId" type="String" mode="IN" optional="true"/>
+        <attribute name="countryCode" type="String" mode="IN" optional="true"/>
+        <attribute name="areaCode" type="String" mode="IN" optional="true"/>
+        <attribute name="contactNumber" type="String" mode="IN" optional="true"/>
 
 <!--        Output attribute of the service -->
         <attribute name="partyId" type="String" mode="OUT"/>

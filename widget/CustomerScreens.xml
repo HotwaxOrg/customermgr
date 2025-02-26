@@ -38,4 +38,32 @@ under the License.
         </section>
     </screen>
 
+    <screen name="findcustomer">
+        <section>
+            <actions>
+                <set field="headerItem" value="findCustomer"/>
+                <set field="titleProperty" value="PageTitleFindCustomer"/>
+                <script location="component://customer/groovyScripts/findCustomers.groovy"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CustomerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <decorator-section name="search-options">
+                            <platform-specific>
+                                <html><html-template location="component://customer/template/findCustomer.ftl"/></html>
+                            </platform-specific>
+                        </decorator-section>
+                        <decorator-section name="search-results">
+                            <platform-specific>
+                                <html><html-template location="component://customer/template/listCustomer.ftl"/></html>
+                            </platform-specific>
+                        </decorator-section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+
+
 </screens>

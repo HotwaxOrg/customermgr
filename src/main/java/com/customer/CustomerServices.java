@@ -159,7 +159,10 @@ public class CustomerServices{
 
         List<GenericValue> customersList = new ArrayList<>();
         try{
-            customersList = EntityQuery.use(delegator).from("CustomerViewEntity").where(EntityCondition.makeCondition(conditions, EntityOperator.AND)).queryList();
+            customersList = EntityQuery
+                    .use(delegator)
+                    .from("CustomerView")
+                    .where(EntityCondition.makeCondition(conditions, EntityOperator.AND) ).queryList();
         } catch (GenericEntityException e){
             return ServiceUtil.returnError("Error creating order: " + e.getMessage());
         }
