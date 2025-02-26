@@ -33,4 +33,46 @@ under the License.
     <property key="CustomerViewPermissionError">
         <value xml:lang="en">You are not allowed to view this page.</value>
     </property>
+    <property key="FirstName">
+        <value xml:lang="en">First Name</value>
+    </property>
+    <property key="LastName">
+        <value xml:lang="en">Last Name</value>
+    </property>
+    <property key="Gender">
+        <value xml:lang="en">Gender</value>
+    </property>
+    <property key="EmailAddress">
+        <value xml:lang="en">Email Address</value>
+    </property>
+    <property key="DOB">
+        <value xml:lang="en">Date Of Birth</value>
+    </property>
+    <property key="Address1">
+        <value xml:lang="en">Address Line 1</value>
+    </property>
+    <property key="Address2">
+        <value xml:lang="en">Address Line 2</value>
+    </property>
+    <property key="City">
+        <value xml:lang="en">City</value>
+    </property>
+    <property key="PostalCode">
+        <value xml:lang="en">Postal Code</value>
+    </property>
+    <property key="State">
+        <value xml:lang="en">State</value>
+    </property>
+    <property key="Country">
+        <value xml:lang="en">Country</value>
+    </property>
+    <property key="CountryCode">
+        <value xml:lang="en">Country Code</value>
+    </property>
+    <property key="AreaCode">
+        <value xml:lang="en">Area Code</value>
+    </property>
+    <property key="ContactNumber">
+        <value xml:lang="en">Contact Number</value>
+    </property>
 </resource>

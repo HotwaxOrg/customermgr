@@ -30,6 +30,9 @@ under the License.
                 <set field="layoutSettings.companyName" from-field="uiLabelMap.CustomerCompanyName" global="true"/>
                 <set field="layoutSettings.companySubtitle" from-field="uiLabelMap.CustomerCompanySubtitle" global="true"/>
 
+                <set field="layoutSettings.styleSheets[]" value="/customer/css/bootstrap.min.css"/>
+                <set field="layoutSettings.javaScripts[+0]" value="/customer/js/bootstrap.min.js" global="true"/>
+
                 <set field="activeApp" value="customer" global="true"/>
                 <set field="applicationMenuName" value="MainAppBar" global="true"/>
                 <set field="applicationMenuLocation" value="component://customer/widget/CustomerMenus.xml" global="true"/>
