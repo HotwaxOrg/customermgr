@@ -48,7 +48,7 @@
         <!-- Date of Birth -->
         <div class="col-md-6">
             <label class="form-label">${uiLabelMap.DOB}</label>
-            <input type="date" name="DOB" class="form-control">
+            <input type="text" name="dob" class="form-control">
         </div>
 
         <!-- Address Line 1 -->

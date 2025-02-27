@@ -60,10 +60,22 @@ under the License.
         <response name="success" type="view" value="listCustomer"/>
         <response name="error" type="view" value="findCustomer"/>
     </request-map>
+
+    <request-map uri="findCustomer">
+        <response name="success" type="request-redirect" value="ViewCustomer">
+            <redirect-parameter name="customerId" value="${customer.partyId}"/>
+        </response>
+    </request-map>
+
+    <request-map uri="ViewCustomer">
+        <security/>
+        <response name="success" type="view" value="viewcustomer"/>
+    </request-map>
     
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://customer/widget/CustomerScreens.xml#main"/>
     <view-map name="createcustomer" type="screen" page="component://customer/widget/CustomerScreens.xml#main"/>
     <view-map name="findcustomer" type="screen" page="component://customer/widget/CustomerScreens.xml#findcustomer"/>
     <view-map name="listCustomer" type="screen" page="component://customer/widget/CustomerScreens.xml#findcustomer"/>
+    <view-map name="viewcustomer" type="screen" page="component://customer/widget/CustomerScreens.xml#viewcustomer"/>
 </site-conf>

@@ -14,7 +14,7 @@
   </head>
   <body data-offset="125">
     <div class="container mt-4">
-    <h2 class="text-center mb-4">Create Customer</h2>
+    <h2 class="text-center mb-4">Find Customer</h2>
     <form action="<@ofbizUrl>findCustomer</@ofbizUrl>" method="post" class="row g-3">
 
         <!-- First Name -->

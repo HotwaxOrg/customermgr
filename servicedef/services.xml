@@ -38,7 +38,7 @@ under the License.
         <attribute name="lastName" type="String" mode="IN"/>
         <attribute name="gender" type="String" mode="IN"/>
         <attribute name="emailAddress" type="String" mode="IN" optional="true"/>
-        <attribute name="DOB" type="Timestamp" mode="IN"/>
+        <attribute name="dob" type="String" mode="IN"/>
         <attribute name="address1" type="String" mode="IN" optional="true"/>
         <attribute name="address2" type="String" mode="IN" optional="true"/>
         <attribute name="city" type="String" mode="IN" optional="true"/>
@@ -48,6 +48,9 @@ under the License.
         <attribute name="countryCode" type="String" mode="IN" optional="true"/>
         <attribute name="areaCode" type="String" mode="IN" optional="true"/>
         <attribute name="contactNumber" type="String" mode="IN" optional="true"/>
+<!--        <attribute name="cardNumber" type="String" mode="IN" />-->
+<!--        <attribute name="cardType" type="String" mode="IN"/>-->
+<!--        <attribute name="expireDate" type="String" mode="IN"/>-->
 
 <!--        Output attribute of the service -->
         <attribute name="partyId" type="String" mode="OUT"/>
@@ -65,5 +68,5 @@ under the License.
 <!--     Output attributes of the service -->
         <attribute name="customersList" type="List" mode="OUT"/>
     </service>
-    
+
 </services>

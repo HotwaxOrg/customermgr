@@ -20,6 +20,7 @@
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
+                <th></th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Gender</th>
@@ -39,6 +40,7 @@
         <#if customersList?has_content>
             <#list customersList as customer>
             <tr>
+               <td><a href="<@ofbizUrl>ViewCustomer?partyId=${customer.partyId}</@ofbizUrl>">View</a></td>
                 <td>${customer.firstName!''}</td>
                 <td>${customer.lastName!''}</td>
                 <td>${customer.gender!''}</td>

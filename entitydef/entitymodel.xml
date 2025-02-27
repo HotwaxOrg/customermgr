@@ -36,6 +36,7 @@ under the License.
         <member-entity entity-alias="TN" entity-name="TelecomNumber"/>
         <member-entity entity-alias="PA" entity-name="PostalAddress"/>
 
+        <alias name="partyId" field="partyId" entity-alias="PER"/>
         <alias name="firstName" field="firstName" entity-alias="PER"/>
         <alias name="lastName" field="lastName" entity-alias="PER"/>
         <alias name="gender" field="gender" entity-alias="PER"/>

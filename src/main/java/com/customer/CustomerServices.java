@@ -2,7 +2,6 @@ package com.customer;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Locale;
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.*;
@@ -21,6 +20,7 @@ import org.apache.ofbiz.base.util.UtilValidate;
 import org.apache.ofbiz.entity.condition.EntityOperator;
 import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.entity.util.EntityQuery;
+import org.apache.ofbiz.service.GenericServiceException;
 
 
 public class CustomerServices{
@@ -30,8 +30,6 @@ public class CustomerServices{
     public static Map<String, Object> createCustomer(DispatchContext dctx, Map<String, ? extends Object> context){
         Map<String, Object> result = new HashMap<>();
         Delegator delegator = dctx.getDelegator();
-        LocalDispatcher dispatcher = dctx.getDispatcher();
-        Locale locale = (Locale) context.get("locale");
 
         // Get input parameters
         String firstName = (String) context.get("firstName");
@@ -50,10 +48,10 @@ public class CustomerServices{
         String contactNumber = (String) context.get("contactNumber");
 
         try {
-//            Generating a party id
+            // Generating a party id
             String partyId = delegator.getNextSeqId("Party");
 
-//        Creating party
+            // Creating party
             GenericValue party = delegator.makeValue("Party",
                     UtilMisc.toMap("partyId", partyId, "partyTypeId", "PERSON", "statusId", "PARTY_ENABLED"));
             delegator.create(party);
@@ -129,10 +127,11 @@ public class CustomerServices{
             delegator.create(partyContactMechPurpose3);
 
             result.put("partyId", partyId);
-            return result;
         } catch (GenericEntityException e){
             return ServiceUtil.returnError("Error creating order: " + e.getMessage());
         }
+
+        return result;
     }
 
 //    Service to find customers
